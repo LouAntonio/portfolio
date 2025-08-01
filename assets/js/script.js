@@ -159,7 +159,7 @@ function contactForm() {
 		var dadosDoFormulario = new FormData(myform);
 		
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'https://santibene.com/mailer/contactoSantibene.php', true);
+		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonio.php', true);
 
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {
@@ -206,7 +206,7 @@ function contactFormPT() {
 		var dadosDoFormulario = new FormData(myformPT);
 
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'https://santibene.com/mailer/contactoSantibenePT.php', true);
+		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonioPT.php', true);
 
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {
