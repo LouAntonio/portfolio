@@ -161,41 +161,36 @@ function contactForm() {
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonio.php', true);
 
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4) {
-				if (xhr.status === 200) {
-					Swal.fire({
-						icon: 'success',
-						title: 'Message sent!',
-						text: 'Your message has been sent successfully.',
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true
-					});
-					myform.reset();
-				} else {
-					Swal.fire({
-						icon: 'success',
-						title: 'Message sent!',
-						text: 'Your message has been sent successfully.',
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true
-					});
-					myform.reset();
-				}
-
-				// Exibe a mensagem por 10 segundos
-				setTimeout(function() {
-					console.log("STATUS: ", xhr.status);
-				}, 10000);
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Message sent!',
+					text: 'Your message has been sent successfully.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				myform.reset();
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Message not sent!',
+					text: 'There was an error sending your message.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
 			}
 		};
-
+		
+		xhr.onerror = function (e) {
+			console.error("Error: ", e);
+		};
 		xhr.send(dadosDoFormulario);
 	});
 }
@@ -208,41 +203,35 @@ function contactFormPT() {
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonioPT.php', true);
 
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4) {
-				if (xhr.status === 200) {
-					Swal.fire({
-						icon: 'success',
-						title: 'Mensagem enviada!',
-						text: 'A sua mensagem foi enviada com sucesso.',
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true
-					});
-					myformPT.reset();
-				} else {
-					Swal.fire({
-						icon: 'success',
-						title: 'Mensagem enviada!',
-						text: 'A sua mensagem foi enviada com sucesso.',
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true
-					});
-					myformPT.reset();
-				}
-
-				// Exibe a mensagem por 10 segundos
-				setTimeout(function() {
-					console.log("STATUS: ", xhr.status);
-				}, 10000);
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Mensagem enviada!',
+					text: 'A sua mensagem foi enviada com sucesso.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				myformPT.reset();
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Mensagem não enviada!',
+					text: 'Ocorreu um erro ao enviar a sua mensagem.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
 			}
 		};
-
+		xhr.onerror = function (e) {
+			console.error("Error: ", e);
+		};
 		xhr.send(dadosDoFormulario);
 	});
 }
