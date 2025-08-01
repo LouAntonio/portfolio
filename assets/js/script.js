@@ -1,52 +1,46 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-
+// VARS
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
-
 // modal variable
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
 
-// modal toggle function
+
+// testimonial modal
 const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+	modalContainer.classList.toggle("active");
+	overlay.classList.toggle("active");
 }
 
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
+	
+	testimonialsItem[i].addEventListener("click", function () {
+		
+		modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+		modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+		modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+		modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+		
+		testimonialsModalFunc();
+		
+	});
+	
 }
 
 // add click event to modal close button
@@ -65,54 +59,53 @@ select.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
+	selectItems[i].addEventListener("click", function () {
+		
+		let selectedValue = this.innerText.toLowerCase();
+		selectValue.innerText = this.innerText;
+		elementToggleFunc(select);
+		filterFunc(selectedValue);
+		
+	});
 }
 
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
-  }
-
+	
+	for (let i = 0; i < filterItems.length; i++) {
+		
+		if (selectedValue === "all") {
+			filterItems[i].classList.add("active");
+		} else if (selectedValue === filterItems[i].dataset.category) {
+			filterItems[i].classList.add("active");
+		} else {
+			filterItems[i].classList.remove("active");
+		}
+		
+	}
+	
 }
 
 // add event in all filter button items for large screen
 let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
+	
+	filterBtn[i].addEventListener("click", function () {
+		
+		let selectedValue = this.innerText.toLowerCase();
+		selectValue.innerText = this.innerText;
+		filterFunc(selectedValue);
+		
+		lastClickedBtn.classList.remove("active");
+		this.classList.add("active");
+		lastClickedBtn = this;
+		
+	});
+	
 }
-
 
 
 // contact form variables
@@ -122,18 +115,17 @@ const formBtn = document.querySelector("[data-form-btn]");
 
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
+	formInputs[i].addEventListener("input", function () {
+		
+		// check form validation
+		if (form.checkValidity()) {
+			formBtn.removeAttribute("disabled");
+		} else {
+			formBtn.setAttribute("disabled", "");
+		}
+		
+	});
 }
-
 
 
 // page navigation variables
@@ -142,18 +134,125 @@ const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+	navigationLinks[i].addEventListener("click", function () {
+		
+		for (let i = 0; i < pages.length; i++) {
+			if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+				pages[i].classList.add("active");
+				navigationLinks[i].classList.add("active");
+				window.scrollTo(0, 0);
+			} else {
+				pages[i].classList.remove("active");
+				navigationLinks[i].classList.remove("active");
+			}
+		}
+		
+	});
+}
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
+const myform = document.getElementById('form');
+const myformPT = document.getElementById('formPT');
 
-  });
+if (myform) {
+	myform.addEventListener('submit', function (e) {
+		e.preventDefault();
+		const formData = new FormData(myform);
+
+		fetch('https://santibene.com/mailer/contactLouAntonio.php', {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => {
+			if (response.status === 200) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Message sent!',
+					text: 'Your message has been sent successfully.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				myform.reset();
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error!',
+					text: 'Error while sending your message. Please try again later!',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				console.log(response);
+			}
+		})
+		.catch((error) => {
+			Swal.fire({
+				icon: 'error',
+				title: 'Error!',
+				text: 'Error while sending your message. Please try again later!',
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true
+			});
+			console.log("Error: ", error);
+		});
+	});
+}
+
+if (myformPT) {
+	myformPT.addEventListener('submit', function (e) {
+		e.preventDefault();
+		const formData = new FormData(myformPT);
+
+		fetch('https://santibene.com/mailer/contactLouAntonioPT.php', {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => {
+			if (response.status === 200) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Mensagem enviada!',
+					text: 'Sua mensagem foi enviada com sucesso.',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				myformPT.reset();
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Erro!',
+					text: 'Erro ao enviar sua mensagem. Por favor, tente novamente mais tarde!',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true
+				});
+				console.log(response);
+			}
+		})
+		.catch((error) => {
+			Swal.fire({
+				icon: 'error',
+				title: 'Erro!',
+				text: 'Erro ao enviar sua mensagem. Por favor, tente novamente mais tarde!',
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true
+			});
+			console.log("Error: ", error);
+		});
+	});
 }

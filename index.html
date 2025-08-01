@@ -10,6 +10,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -107,7 +108,7 @@
 						<button class="navbar-link" data-nav-link>Contact</button>
 					</li>
 					<li>
-						<a href="./pt/" class="navbar-link" data-nav-link><img src="./assets/images/languages/pt.png" alt="PT" width="25"></a>
+						<a href="./pt/" class="navbar-link"><img src="./assets/images/languages/pt.png" alt="PT" width="25"></a>
 					</li>
 				</ul>
 			</nav>
@@ -121,9 +122,9 @@
 				
 				<section class="about-text">
 					<p>
-						I am a young developer passionate about creating solutions using technology as a tool. Since 2020, I have been working with website and web application development, and more recently, I transitioned to cross-platform mobile development.
+						I am a young developer passionate about creating solutions using technology as a tool. Since 2020, I have been working with website and web application development, and more recently, I started to work with cross-platform mobile development.
 						<br>Self-taught, I seek challenges that can contribute to my personal and professional growth, and I am always looking to learn new skills and improve my knowledge.
-						<br>A "Certified Nerd", i spend my free time enjoying sci-fi movies, comics, and music.
+						<br>A "Certified Nerd", i spend my free time enjoying sci-fi movies and series, comics, and music.
 					</p>
 				</section>
 
@@ -183,7 +184,7 @@
 						<li class="testimonials-item">
 							<div class="content-card" data-testimonials-item>
 								<figure class="testimonials-avatar-box">
-									<img src="./assets/images/avatars/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+									<img src="./assets/images/avatars/avatar-1.png" alt="Jessica miller" width="60" data-testimonials-avatar>
 								</figure>
 								<h4 class="h4 testimonials-item-title" data-testimonials-title>Client name</h4>
 								<div class="testimonials-text" data-testimonials-text>
@@ -197,7 +198,7 @@
 						<li class="testimonials-item">
 							<div class="content-card" data-testimonials-item>
 								<figure class="testimonials-avatar-box">
-									<img src="./assets/images/avatars/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+									<img src="./assets/images/avatars/avatar-1.png" alt="Emily evans" width="60" data-testimonials-avatar>
 								</figure>
 								<h4 class="h4 testimonials-item-title" data-testimonials-title>Client name</h4>
 								<div class="testimonials-text" data-testimonials-text>
@@ -262,7 +263,7 @@
 							<h4 class="h4 timeline-item-title"><a href="https://42luanda.com/" target="_blank" class="inline-link">42 Luanda</a> | Software Engineering</h4>
 							<span>2024 — Present</span>
 							<p class="timeline-text">
-								42 Luanda is a private, nonprofit and tuition-free computer programming school located in Luanda, Angola. It is part of the <a href="https://www.42network.org/" target="_blank" class="inline-link">42 Network</a>, which was founded in Paris, France.
+								42 Luanda is an excellence-driven programming school, based on practical projects, located in Luanda, Angola. It is part of the <a href="https://www.42network.org/" target="_blank" class="inline-link">42 Network</a>, which was founded in Paris, France.
 							</p>
 						</li>
 						
@@ -659,7 +660,7 @@
 					
 					<p class="contactText">Get in Touch. I'm always open to new ideas, creative projects, and meaningful conversations. <br> <span class="span">Got something in mind?</span> <span id="typewrite" class="span"></span></p>
 					
-					<form action="#" class="form" data-form>
+					<form action="#" class="form" data-form method="POST" id="form">
 						
 						<div class="input-wrapper">
 							<input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
@@ -686,6 +687,7 @@
 	<script src="./assets/js/script.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
 		const texts = [
 			"Send me a message!",
