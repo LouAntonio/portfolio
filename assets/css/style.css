@@ -1040,23 +1040,24 @@ main {
 }
 
 .stack-topic-item {
-	position: relative;
-	padding-left: 16px;
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
 	color: var(--light-gray);
 	font-size: var(--fs-6);
 	font-weight: var(--fw-400);
 	line-height: 1.45;
 }
 
-.stack-topic-item::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0.48em;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: var(--vegas-gold);
+.stack-topic-icon {
+	color: var(--vegas-gold);
+	font-size: 16px;
+	margin-top: 2px;
+	flex-shrink: 0;
+}
+
+.stack-topic-item span {
+	color: inherit;
 }
 
 

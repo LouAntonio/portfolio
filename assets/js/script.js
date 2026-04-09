@@ -157,6 +157,24 @@ function contactForm() {
 	myform.addEventListener('submit', function (e) {
 		e.preventDefault();
 		var dadosDoFormulario = new FormData(myform);
+
+		var name = dadosDoFormulario.get('fullname');
+		var email = dadosDoFormulario.get('email');
+		var message = dadosDoFormulario.get('message');
+
+		if (!name || !email || !message) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Fill in all fields!',
+				text: 'Please fill in all fields of the form.',
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true
+			});
+			return;
+		}
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonio.php', true);
@@ -199,6 +217,25 @@ function contactFormPT() {
 	myformPT.addEventListener('submit', function (e) {
 		e.preventDefault();
 		var dadosDoFormulario = new FormData(myformPT);
+
+		// validação dos dados do formulário
+		var nome = dadosDoFormulario.get('fullname');
+		var email = dadosDoFormulario.get('email');
+		var mensagem = dadosDoFormulario.get('message');
+
+		if (!nome || !email || !mensagem) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Preencha todos os campos!',
+				text: 'Por favor, preencha todos os campos do formulário.',
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true
+			});
+			return;
+		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.open('POST', 'https://santibene.com/mailer/contactLouAntonioPT.php', true);
