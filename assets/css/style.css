@@ -1151,6 +1151,10 @@ main {
 	padding-top: 4px;
 }
 
+.stack-list + .stack-topic-list {
+	margin-top: 10px;
+}
+
 .stack-topic-item {
 	display: flex;
 	align-items: flex-start;
