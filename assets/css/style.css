@@ -952,6 +952,62 @@ main {
 	margin-bottom: 4px;
 }
 
+/* experience timeline */
+
+.timeline-experience .timeline-item:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.timeline-experience .timeline-item-title {
+	margin-bottom: 0;
+	text-transform: none;
+}
+
+.timeline-experience .experience-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 6px 18px;
+	margin-bottom: 6px;
+}
+
+.timeline-experience .experience-period {
+	color: var(--light-gray-70);
+	font-size: var(--fs-5);
+	font-weight: var(--fw-500);
+	line-height: 1.3;
+	margin-left: auto;
+	white-space: nowrap;
+}
+
+.timeline-experience .experience-role {
+	color: var(--vegas-gold);
+	font-weight: var(--fw-500);
+	line-height: 1.5;
+	margin-bottom: 12px;
+}
+
+.timeline-experience .experience-summary {
+	color: var(--light-gray);
+	line-height: 1.5;
+	margin-bottom: 12px;
+}
+
+.timeline-experience .experience-responsibilities {
+	padding-left: 18px;
+}
+
+.timeline-experience .experience-responsibilities li {
+	color: var(--light-gray);
+	list-style: disc;
+	line-height: 1.45;
+}
+
+.timeline-experience .experience-responsibilities li:not(:last-child) {
+	margin-bottom: 6px;
+}
+
 
 /**
  * skills 
@@ -1848,6 +1904,10 @@ textarea.form-input::-webkit-resizer {
 
 	.timeline-education .education-subject-columns {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.timeline-experience .experience-header {
+		align-items: baseline;
 	}
 
 	.skills-item:not(:last-child) {
